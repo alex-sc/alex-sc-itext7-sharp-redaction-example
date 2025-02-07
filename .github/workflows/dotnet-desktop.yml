@@ -30,3 +30,12 @@ jobs:
           file-digest: SHA256
           timestamp-rfc3161: http://timestamp.acs.microsoft.com
           timestamp-digest: SHA256
+      
+      - name: Create github release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          automatic_release_tag: "${{ github.ref_name }}"
+          files: |
+              ${{ github.workspace }}\itext7-redaction\bin\Release\net8.0\*.exe
