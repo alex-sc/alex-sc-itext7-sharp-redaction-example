@@ -22,10 +22,9 @@ jobs:
           azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
           azure-client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
           endpoint: https://eus.codesigning.azure.net/
-          trusted-signing-account-name: rusted-signing-alex
-          certificate-profile-name: rusted-signing-alex-certificate
+          trusted-signing-account-name: ${{ secrets.AZURE_ACCOUNT_NAME }}
+          certificate-profile-name: ${{ secrets.AZURE_PROFILE_NAME }}
           files-folder: ${{ github.workspace }}\itext7-redaction\bin\Release\net8.0
           files-folder-filter: exe,dll
           file-digest: SHA256
